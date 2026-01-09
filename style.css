@@ -28,6 +28,11 @@
   --color-background: #fafafa;
   --color-background-alt: #ffffff;
   
+  /* Couleurs pour les liens - tons de bleu avec contraste optimal */
+  --color-link: #0051a8;
+  --color-link-hover: #003d7a;
+  --color-link-visited: #6b3fa0;
+  
   /* Espacements */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -191,15 +196,19 @@ blockquote p {
 
 /* === CODE === */
 code, pre {
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Consolas', monospace;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Consolas', 'Courier New', monospace;
   font-size: var(--text-sm);
+  font-variant-ligatures: none;
+  /* Désactivation des ligatures pour le code */
+  font-feature-settings: "liga" 0, "calt" 0;
 }
 
 code {
   background-color: var(--color-background-alt);
-  padding: 0.125em 0.25em;
+  padding: 0.2em 0.4em;
   border-radius: 3px;
   color: var(--color-text);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 pre {
@@ -207,31 +216,72 @@ pre {
   padding: var(--space-md);
   border-radius: 6px;
   overflow-x: auto;
-  margin-bottom: var(--space-md);
-  line-height: var(--line-height-base);
+  margin-bottom: var(--space-lg);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  
+  /* Optimisation pour la lecture de code */
+  line-height: 1.6;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  
+  /* Passage à la ligne pour éviter le scroll horizontal */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  
+  /* Amélioration de la lisibilité horizontale */
+  letter-spacing: 0.02em;
 }
 
 pre code {
   background: none;
   padding: 0;
+  border: none;
+  font-size: 0.9em;
+  display: block;
+}
+
+/* Support pour les numéros de ligne (optionnel) */
+pre[data-line-numbers] {
+  counter-reset: line;
+  padding-left: calc(var(--space-md) + 2.5em);
+}
+
+pre[data-line-numbers] code {
+  counter-increment: line;
+}
+
+pre[data-line-numbers] code::before {
+  content: counter(line);
+  display: inline-block;
+  width: 2em;
+  margin-left: calc(-2.5em - var(--space-md));
+  margin-right: var(--space-md);
+  text-align: right;
+  color: var(--color-text-light);
+  user-select: none;
 }
 
 /* === LIENS === */
 a {
-  color: var(--color-text);
+  color: var(--color-link);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
   transition: all 0.2s ease;
 }
 
+a:visited {
+  color: var(--color-link-visited);
+}
+
 a:hover {
-  color: var(--color-text-light);
+  color: var(--color-link-hover);
   text-decoration-thickness: 2px;
 }
 
 a:focus {
-  outline: 2px solid var(--color-text);
+  outline: 2px solid var(--color-link);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -380,6 +430,9 @@ th {
   :root {
     --color-text: #000000;
     --color-background: #ffffff;
+    --color-link: #0000ee;
+    --color-link-hover: #0000cc;
+    --color-link-visited: #551a8b;
   }
 }
 
