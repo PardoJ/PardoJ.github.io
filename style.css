@@ -375,20 +375,6 @@ th {
   }
 }
 
-/* === DARK MODE (respect des préférences système) === */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: #e0e0e0;
-    --color-text-light: #a0a0a0;
-    --color-background: #1a1a1a;
-    --color-background-alt: #2a2a2a;
-  }
-  
-  a:focus {
-    outline-color: var(--color-text);
-  }
-}
-
 /* === PRÉFÉRENCE DE CONTRASTE ÉLEVÉ === */
 @media (prefers-contrast: high) {
   :root {
@@ -399,9 +385,14 @@ th {
 
 /* === PRÉFÉRENCE POUR MOUVEMENT RÉDUIT === */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
   }
 }
