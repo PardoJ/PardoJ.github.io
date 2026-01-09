@@ -348,6 +348,136 @@
             </p>
         </section>
 
+        <section>
+            <h2>L'intégration des images dans le flux de lecture</h2>
+
+            <p>
+                Les images ne sont pas de simples décorations : elles participent activement au 
+                rythme de lecture et à la compréhension du contenu. Une image bien placée crée 
+                une pause visuelle qui permet au lecteur de respirer, d'ancrer un concept, ou 
+                d'enrichir sa compréhension du texte.
+            </p>
+
+            <figure>
+                <img src="https://picsum.photos/800/500?random=1" 
+                     alt="Exemple de photographie en haute résolution illustrant les principes de composition" 
+                     loading="lazy"
+                     width="800"
+                     height="500">
+                <figcaption>
+                    Une image standard s'intègre naturellement dans la colonne de texte, 
+                    respectant la largeur maximale établie pour une cohérence visuelle optimale.
+                </figcaption>
+            </figure>
+
+            <h3>Adaptation responsive et formats</h3>
+
+            <p>
+                Les images doivent s'adapter fluidement à toutes les tailles d'écran. Le format 
+                WebP, avec son excellent ratio qualité/poids (30-40% plus léger que JPEG), devient 
+                le standard pour les photographies web. Le lazy-loading natif améliore les 
+                performances en ne chargeant que les images visibles dans le viewport.
+            </p>
+
+            <p>
+                Pour des images particulièrement importantes ou spectaculaires, la variante 
+                "pleine largeur" permet de déborder légèrement de la colonne de texte, créant 
+                un impact visuel fort sans rompre complètement avec la structure de la page :
+            </p>
+
+            <figure>
+                <img src="https://picsum.photos/1200/600?random=2" 
+                     alt="Photographie en format panoramique occupant toute la largeur disponible" 
+                     class="full-width"
+                     loading="lazy"
+                     width="1200"
+                     height="600">
+                <figcaption>
+                    Image pleine largeur : idéale pour les paysages ou images nécessitant 
+                    un fort impact visuel. À utiliser avec parcimonie pour maintenir la cohérence.
+                </figcaption>
+            </figure>
+
+            <h3>Images de petite taille et illustrations</h3>
+
+            <p>
+                Certaines images fonctionnent mieux à taille réduite : diagrammes simples, 
+                icônes, illustrations conceptuelles. La variante "small" limite la largeur 
+                maximale tout en centrant l'image dans la colonne :
+            </p>
+
+            <figure>
+                <img src="https://picsum.photos/400/300?random=3" 
+                     alt="Illustration de petite taille centrée dans la colonne" 
+                     class="small"
+                     loading="lazy"
+                     width="400"
+                     height="300">
+                <figcaption>
+                    Les petites images conservent leurs proportions sans dominer visuellement le texte.
+                </figcaption>
+            </figure>
+
+            <h3>Galeries et séries photographiques</h3>
+
+            <p>
+                Quand plusieurs images sont liées thématiquement, une galerie permet de les 
+                regrouper visuellement. L'espacement réduit entre images crée une unité, tandis 
+                que la grille responsive s'adapte automatiquement au nombre d'images et à la 
+                largeur d'écran :
+            </p>
+
+            <div class="gallery">
+                <figure>
+                    <img src="https://picsum.photos/400/400?random=4" 
+                         alt="Première image de la série" 
+                         loading="lazy"
+                         width="400"
+                         height="400">
+                    <figcaption>Composition verticale</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://picsum.photos/400/400?random=5" 
+                         alt="Deuxième image de la série" 
+                         loading="lazy"
+                         width="400"
+                         height="400">
+                    <figcaption>Jeu de lumière naturelle</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://picsum.photos/400/400?random=6" 
+                         alt="Troisième image de la série" 
+                         loading="lazy"
+                         width="400"
+                         height="400">
+                    <figcaption>Détail architectural</figcaption>
+                </figure>
+            </div>
+
+            <p>
+                Sur mobile, la galerie bascule automatiquement en colonne unique pour maintenir 
+                la lisibilité. Chaque image conserve son ratio d'aspect grâce à la propriété 
+                CSS <code>object-fit: cover</code>, garantissant une grille harmonieuse même 
+                avec des images de dimensions variables.
+            </p>
+
+            <h3>Accessibilité et description</h3>
+
+            <p>
+                Chaque image doit posséder un attribut <code>alt</code> descriptif qui permette 
+                aux lecteurs d'écran de transmettre le contenu et la fonction de l'image. Le 
+                texte alternatif complète la légende sans la dupliquer : la légende contextualise 
+                pour tous les lecteurs, le alt décrit pour ceux qui ne peuvent voir l'image.
+            </p>
+
+            <p>
+                Les attributs <code>width</code> et <code>height</code> explicites sur les balises 
+                <code>&lt;img&gt;</code> permettent au navigateur de réserver l'espace nécessaire 
+                avant le chargement de l'image, évitant les sauts de mise en page (layout shift) 
+                qui perturbent la lecture.
+            </p>
+        </section>
+
         <hr>
 
         <section>
