@@ -49,6 +49,7 @@
 @media (min-width: 768px) {
   :root {
     --base-font-size: 18px;
+    --content-width: 75ch;
     --content-padding: var(--space-lg);
   }
 }
@@ -56,6 +57,7 @@
 @media (min-width: 1024px) {
   :root {
     --base-font-size: 18px;
+    --content-width: 85ch;
     --content-padding: var(--space-xl);
   }
 }
@@ -299,19 +301,87 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: var(--space-lg) 0;
+  margin: var(--space-md) auto;
+  border-radius: 3px;
 }
 
+/* Bordure subtile pour les photos sur fond clair */
+img:not([src*=".svg"]) {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Variante image pleine largeur (déborde de la colonne) */
+img.full-width {
+  max-width: 100vw;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0;
+}
+
+@media (min-width: 768px) {
+  img.full-width {
+    max-width: 90vw;
+    width: 90vw;
+    border-radius: 6px;
+  }
+}
+
+/* Variante petite image (illustrations, icônes) */
+img.small {
+  max-width: 400px;
+  margin: var(--space-sm) auto;
+}
+
+/* Figure avec légende */
 figure {
-  margin: var(--space-lg) 0;
+  margin: var(--space-md) 0;
+}
+
+figure img {
+  margin-bottom: var(--space-xs);
 }
 
 figcaption {
   font-size: var(--text-sm);
   color: var(--color-text-light);
-  margin-top: var(--space-xs);
   text-align: center;
   font-style: italic;
+  line-height: var(--line-height-base);
+  margin-top: var(--space-xs);
+  padding: 0 var(--space-sm);
+}
+
+/* Galerie d'images (plusieurs images regroupées) */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-sm);
+  margin: var(--space-md) 0 var(--space-lg) 0;
+}
+
+.gallery img {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery figure {
+  margin: 0;
+}
+
+@media (max-width: 1023px) {
+  .gallery {
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 767px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
 }
 
 /* === TABLEAUX === */
