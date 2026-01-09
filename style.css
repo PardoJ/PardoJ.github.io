@@ -300,6 +300,10 @@ th {
 
 /* === OPTIMISATIONS MOBILE === */
 @media (max-width: 767px) {
+  :root {
+    --content-padding: var(--space-sm);
+  }
+  
   body {
     font-size: var(--text-base);
   }
