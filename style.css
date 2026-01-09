@@ -356,7 +356,7 @@ figcaption {
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-sm);
+  gap: var(--space-md);
   margin: var(--space-md) 0 var(--space-lg) 0;
 }
 
@@ -401,6 +401,43 @@ th, td {
 th {
   font-weight: 700;
   color: var(--color-text);
+}
+
+/* === FOOTER === */
+footer {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  text-align: center;
+  line-height: var(--line-height-relaxed);
+}
+
+.footer-content p {
+  margin-bottom: var(--space-xs);
+}
+
+.footer-content a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.footer-content a:hover {
+  color: var(--color-link);
+  border-bottom-color: var(--color-link);
+}
+
+.footer-meta {
+  /*font-size: var(--text-xs);*/
+  color: var(--color-text-light);
+  opacity: 0.7;
+  margin-top: var(--space-sm);
 }
 
 /* === MÉTADONNÉES === */
