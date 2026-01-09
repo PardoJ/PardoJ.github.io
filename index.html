@@ -236,6 +236,116 @@
                 lui, sert le lecteur. C'est cette dimension de service, cet effacement au profit 
                 du sens, qui distingue la vraie maîtrise typographique de la simple décoration.
             </p>
+            
+            <p>
+                Pour approfondir ces sujets, vous pouvez consulter <a href="https://practicaltypography.com/">Practical Typography</a> 
+                de Matthew Butterick, référence incontournable sur la typographie web moderne, ou 
+                <a href="https://www.w3.org/WAI/WCAG21/Understanding/">les directives WCAG</a> pour 
+                l'accessibilité numérique. Le livre <a href="https://webtypography.net/"><em>The Elements 
+                of Typographic Style Applied to the Web</em></a> transpose brillamment les principes 
+                classiques de Bringhurst au contexte numérique.
+            </p>
+        </section>
+
+        <section>
+            <h2>La lisibilité du code source</h2>
+
+            <p>
+                Le code informatique impose des contraintes de lecture différentes du texte 
+                naturel. Contrairement à la prose, le code nécessite une lecture non-linéaire 
+                où l'œil balaie verticalement pour comprendre la structure, puis horizontalement 
+                pour analyser les détails. Les principes typographiques s'adaptent à ces 
+                spécificités.
+            </p>
+
+            <h3>Les polices monospaces</h3>
+
+            <p>
+                Les polices à chasse fixe, où chaque caractère occupe exactement la même largeur, 
+                sont indispensables pour le code. Elles permettent l'alignement vertical des 
+                éléments syntaxiques, facilitant la détection des structures imbriquées. Une 
+                variable <code>maxWidth</code> s'aligne visuellement avec <code>minValue</code>, 
+                créant une grille implicite qui guide la lecture.
+            </p>
+
+            <p>
+                L'espacement entre lettres (<em>letter-spacing</em>) légèrement augmenté dans 
+                les blocs de code compense la densité visuelle du texte monospace. Un interlignage 
+                de 1.6 (contre 1.5 pour le texte courant) offre plus de respiration verticale, 
+                essentielle quand chaque ligne porte une charge sémantique importante.
+            </p>
+
+            <h3>Exemple de code inline et bloc</h3>
+
+            <p>
+                Pour initialiser une variable en JavaScript, on utilise la syntaxe 
+                <code>const variable = valeur;</code> qui déclare une constante immuable. 
+                Voici un exemple plus complet de fonction :
+            </p>
+
+            <pre><code>function calculateOptimalLineLength(fontSize, containerWidth) {
+  // Plage optimale : 50-75 caractères
+  const minChars = 50;
+  const maxChars = 75;
+  
+  // Calcul de la largeur moyenne d'un caractère
+  const avgCharWidth = fontSize * 0.6;
+  
+  // Détermination du nombre de caractères possibles
+  const possibleChars = Math.floor(containerWidth / avgCharWidth);
+  
+  // Retour de la valeur contrainte dans la plage optimale
+  return Math.max(minChars, Math.min(maxChars, possibleChars));
+}</code></pre>
+
+            <p>
+                Ce code illustre plusieurs principes : l'indentation à deux espaces crée une 
+                hiérarchie visuelle claire, les commentaires guident la compréhension, et la 
+                structure verticale permet de saisir l'algorithme d'un coup d'œil. La police 
+                monospace assure que chaque niveau d'indentation s'aligne parfaitement.
+            </p>
+
+            <h3>Configuration CSS responsive</h3>
+
+            <p>
+                Les variables CSS custom properties permettent une gestion centralisée des 
+                paramètres typographiques. Voici comment définir une échelle modulaire 
+                adaptative :
+            </p>
+
+            <pre><code>:root {
+  --base-font-size: 16px;
+  --scale-ratio: 1.25;
+  
+  --text-sm: calc(var(--base-font-size) / var(--scale-ratio));
+  --text-base: var(--base-font-size);
+  --text-lg: calc(var(--base-font-size) * var(--scale-ratio));
+  --text-xl: calc(var(--base-font-size) * var(--scale-ratio) * var(--scale-ratio));
+}
+
+@media (min-width: 768px) {
+  :root {
+    --base-font-size: 18px;
+  }
+}</code></pre>
+
+            <p>
+                L'utilisation de <code>calc()</code> et de variables crée un système typographique 
+                qui s'adapte automatiquement. Modifier une seule valeur (<code>--base-font-size</code>) 
+                recalcule toute l'échelle proportionnellement. Cette approche garantit la cohérence 
+                typographique à travers tous les points de rupture responsive.
+            </p>
+
+            <h3>Les spécificités de la coloration syntaxique</h3>
+
+            <p>
+                Bien que cette page ne l'implémente pas, la coloration syntaxique améliore 
+                considérablement la lisibilité du code. Les mots-clés du langage en couleur 
+                contrastée, les chaînes de caractères distinctes, les commentaires atténués : 
+                chaque élément syntaxique acquiert une identité visuelle qui accélère la 
+                reconnaissance des patterns. Le cerveau apprend à associer couleur et fonction, 
+                transformant la lecture en un processus quasi-automatique.
+            </p>
         </section>
 
         <hr>
